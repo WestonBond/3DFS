@@ -202,8 +202,9 @@
   </button>
 
   <main id="main-content">
+  
   <section class="hero">
-    <div class="hero-body">
+    <div class="hero-body pb-4">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
@@ -254,22 +255,54 @@
     </div>
   </section>
 
+  <section class="section" style="padding-top: 0;">
+    <div class="container is-max-desktop">
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img
-        src="static/images/teaser_final.png"
-        alt="3D FaceShell Teaser"
-        style="width:100%; border-radius:12px; border: none !important; box-shadow: none !important; outline: none !important;"
-      >
+      <div class="columns is-centered">
+        <div class="column">
+          <video id="full-model-vid" autoplay controls muted loop playsinline style="width: 100%; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <source src="static/videos/rendered_34_web.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="has-text-centered mt-3">
+            <strong>Full Avatar</strong><br>
+            (Base + Optimized Shell)
+          </p>
+        </div>
 
-      <h2 class="subtitle has-text-centered">
-        3D FaceShell introduces a learnable Gaussian shell around a frozen 3D face avatar, enabling attribute transfer attacks against vision-language models while preserving visual realism and identity consistency.
+        <div class="column">
+          <video id="shell-model-vid" autoplay controls muted loop playsinline style="width: 100%; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <source src="static/videos/rendered_34_shell_web.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="has-text-centered mt-3">
+            <strong>Isolated Noise</strong><br>
+            (Auxiliary Shell Only)
+          </p>
+        </div>
+      </div>
+
+      <h2 class="subtitle has-text-centered mt-4">
+        During the optimization process, the learnable Gaussian shell smoothly adapts to shift the VLM's semantic understanding. <strong>Above</strong>, the left video demonstrates the preservation of visual fidelity on the full model, while the right video isolates the auxiliary shell to highlight the spatial distribution of the adversarial noise.
       </h2>
+
     </div>
-  </div>
-</section>
+  </section>
+  
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body" style="padding-top: 0;">
+        <img
+          src="static/images/teaser_final.png"
+          alt="3D FaceShell Teaser"
+          style="width:100%; border-radius:12px; border: none !important; box-shadow: none !important; outline: none !important;"
+        >
+        <h2 class="subtitle has-text-centered mt-4">
+          3D FaceShell introduces a learnable Gaussian shell around a frozen 3D face avatar, enabling attribute transfer attacks against vision-language models while preserving visual realism and identity consistency.
+        </h2>
+      </div>
+    </div>
+  </section>
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -278,7 +311,6 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
           <p>
             3D FaceShell is a privacy-preserving framework that manipulates how vision-language models interpret 3D face avatars while preserving facial identity and visual realism. By introducing a learnable Gaussian shell around a frozen 3D Gaussian Splatting representation, FaceShell redirects attribute predictions across viewpoints without altering the underlying face. Extensive experiments demonstrate strong semantic manipulation performance while maintaining significantly higher perceptual quality and identity consistency than existing 2D adversarial approaches.
           </p>
